@@ -1,0 +1,44 @@
+:root {
+  --ink: #d2d2d2;
+  --muted: #858585;
+  --line: rgba(216, 216, 216, .1);
+  --panel: #141414;
+  --green: #45c96b;
+  --deep: #171717;
+  --orange: #b0b0b0;
+}
+
+* { box-sizing: border-box; }
+html { background: var(--deep); }
+body { margin: 0; color: var(--ink); background: #171717; font-family: "DM Sans", sans-serif; min-height: 100vh; }
+button, input, select { font: inherit; }
+button, select { cursor: pointer; }
+.site-shell { max-width: 1180px; margin: auto; padding: 0 28px 90px; }
+.topbar { width: 100vw; height: 76px; margin-left: calc(50% - 50vw); padding: 0 20px; display: flex; align-items: center; background: #101310; border-bottom: 1px solid rgba(216, 216, 216, .1); }
+.brand { color: var(--ink); display: flex; align-items: center; gap: 11px; font: 700 25px "Space Grotesk", sans-serif; letter-spacing: -.04em; text-decoration: none; }.brand-icon { width: 34px; height: 34px; object-fit: contain; border-radius: 7px; }
+.brand-dot { color: var(--green); }
+.brand-mark { display: inline-flex; align-items: end; gap: 3px; height: 21px; }
+.brand-mark span { width: 4px; border-radius: 5px; background: var(--green); display: block; }
+.brand-mark span:nth-child(1) { height: 10px; opacity: .55; }.brand-mark span:nth-child(2) { height: 17px; }.brand-mark span:nth-child(3) { height: 13px; opacity: .75; }
+.intro { display: flex; justify-content: space-between; align-items: end; gap: 20px; padding: 78px 0 65px; }
+.eyebrow, .section-kicker { color: var(--green); font-size: 11px; font-weight: 700; letter-spacing: .16em; margin: 0 0 17px; }
+h1, h2 { font-family: "Space Grotesk", sans-serif; letter-spacing: -.055em; margin: 0; }
+h1 { font-size: clamp(3.4rem, 8vw, 7.2rem); line-height: .92; max-width: 780px; }
+.intro-text { color: var(--muted); font-size: 16px; line-height: 1.65; max-width: 470px; margin: 27px 0 0; }
+.intro-note { color: var(--muted); border-top: 1px solid var(--line); padding-top: 12px; width: 128px; display: flex; justify-content: space-between; font-size: 12px; line-height: 1.35; }
+.note-number { color: var(--green); font-weight: 700; }
+.toolbar { display: flex; gap: 10px; margin-bottom: 62px; }
+.search-field, .select-field { display: flex; align-items: center; border: 1px solid var(--line); background: rgba(18, 18, 18, .45); min-height: 52px; }
+.search-field { flex: 1; padding: 0 16px; gap: 10px; color: var(--muted); }.search-field span { font-size: 27px; line-height: 0; transform: translateY(-2px); }.search-field input { border: 0; outline: 0; background: transparent; color: var(--ink); width: 100%; }.search-field input::placeholder { color: #718077; }
+.select-field { padding: 0 15px; }.select-field select { border: 0; outline: 0; background: transparent; color: var(--ink); min-width: 180px; }.select-field option { background: #292929; }
+.refresh-button, .close-player { border: 1px solid var(--line); color: var(--green); background: transparent; width: 52px; font-size: 24px; }.refresh-button:hover { background: rgba(166, 226, 111, .1); }
+.content-head { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 16px 0; }.content-head .section-kicker { margin: 0; }.result-count { color: var(--muted); font-size: 13px; }
+.status-message { color: var(--muted); padding: 40px 0; }.status-message:empty { display: none; }
+.channel-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; padding-top: 13px; }
+.channel-card { border: 1px solid var(--line); background: var(--panel); padding: 13px 18px; min-height: 78px; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 14px; transition: border-color .2s, transform .2s, background .2s; }.channel-card:hover { transform: translateX(2px); border-color: rgba(225, 225, 225, .25); background: #1b1b1b; }
+.channel-card.is-playing { border-color: rgba(69, 201, 107, .45); background: #181b18; }.inline-player { margin-top: 10px; }.inline-player audio { width: min(360px, 100%); height: 30px; }.channel-card.is-playing .channel-status { box-shadow: 0 0 0 4px rgba(69, 201, 107, .14), 0 0 12px rgba(69, 201, 107, .4); }
+.channel-status { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px rgba(69, 201, 107, .1), 0 0 10px rgba(69, 201, 107, .28); }.channel-name { font: 600 18px "Space Grotesk", sans-serif; line-height: 1.15; margin: 0 0 2px; }.channel-location { color: var(--muted); font-size: 12px; }.play-button { justify-self: end; border: 0; background: var(--green); color: #06130a; padding: 9px 15px; font-weight: 700; font-size: 12px; white-space: nowrap; box-shadow: 0 4px 14px rgba(69, 201, 107, .12); }.play-button:hover { background: #6ddd88; transform: translateY(-1px); }
+.footer { color: var(--muted); display: flex; justify-content: space-between; border-top: 1px solid rgba(216, 216, 216, .08); margin-top: 80px; padding-top: 18px; font-size: 12px; }
+.player { position: fixed; z-index: 5; bottom: 12px; left: 50%; transform: translateX(-50%); width: min(420px, calc(100% - 28px)); background: #303030; border: 1px solid rgba(225, 225, 225, .28); padding: 8px 11px; display: grid; grid-template-columns: 1fr auto 18px; gap: 9px; align-items: center; box-shadow: 0 10px 28px rgba(0,0,0,.3); }.player-info { display: grid; gap: 1px; min-width: 0; }.player-info strong { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }.player-info span:last-child { color: var(--muted); font-size: 10px; }.player-live { color: var(--green); font-size: 8px; letter-spacing: .13em; font-weight: 700; }.player audio { width: 150px; height: 28px; }.close-player { border: 0; width: auto; font-size: 20px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+@media (max-width: 760px) { .site-shell { padding: 0 17px 80px; }.topbar { height: 68px; padding: 0 17px; }.intro { padding: 54px 0 48px; } h1 { font-size: clamp(3.2rem, 17vw, 5.4rem); }.toolbar { flex-wrap: wrap; margin-bottom: 46px; }.search-field { flex-basis: 100%; }.select-field { flex: 1; }.select-field select { min-width: 0; width: 100%; }.channel-card { padding: 12px 14px; gap: 12px; }.channel-name { font-size: 16px; }.play-button { padding: 8px 12px; }.player { grid-template-columns: 1fr 22px; }.player audio { grid-column: 1 / -1; width: 100%; }.footer { margin-top: 56px; } }

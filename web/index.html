@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Kuuntele seurojen verkkolähetyksiä yhdestä paikasta.">
+    <title>seurat.fi | Verkkolähetykset</title>
+    <link rel="icon" type="image/png" href="./nettiradio%20ikoni.png">
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <a class="brand" href="./" aria-label="seurat.fi etusivu">
+          <img class="brand-icon" src="./nettiradio%20ikoni.png" alt="">
+          <span>seurat<span class="brand-dot">.</span>fi</span>
+        </a>
+      </header>
+
+      <main>
+        <section class="content-head"><span class="section-kicker">LÄHETYKSET</span><span class="result-count" id="result-count">0 seuraa</span></section>
+        <div class="status-message" id="status-message" role="status">Ladataan seuroja...</div>
+        <section class="channel-grid" id="channel-grid" aria-live="polite"></section>
+      </main>
+
+      <footer class="footer"><span>seurat.fi</span><span>Kuuntele rauhassa.</span></footer>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
