@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "seurat", // Varmista, että tämä vastaa täysin sitä projektin nimeä, johon Custom Domain on liitetty
+  "compatibility_date": "2026-09-26",
+  "main": "web/_worker.js",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "web",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  }
+}

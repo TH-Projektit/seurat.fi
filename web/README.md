@@ -18,7 +18,7 @@ Cloudflare Pages:
 2. Valitse build-komennoksi tyhjä arvo.
 3. Aseta output-hakemistoksi `web`.
 
-`web/functions/api/check.js` julkaistaan samalla Pages-projektilla osoitteeseen `/api/check`, joten streamit voidaan testata palvelinpuolella ilman selaimen CORS-rajoituksia.
+Cloudflare Worker julkaisee reitit `/api/streams` ja `/api/check`. Sivu pyytää seurat Workerilta, ja Worker hakee `publicStreams`-kokoelman Firestoresta sekä tarkistaa streamit palvelinpuolella ilman selaimen CORS-rajoituksia.
 
 GitHub Pages toimii samalla rakenteella, kun julkaistavaksi kansioksi valitaan `web`.
 
@@ -26,6 +26,6 @@ Firestore-säännöissä kokoelman lukuoikeus on jo julkinen, joten selaimessa e
 
 ## Streamien tarkistus
 
-Sivu hakee `publicStreams`-kokoelman aina latautuessaan ja testaa streamit selaimen audioelementillä ennen niiden näyttämistä. Tarkistus tehdään uudelleen viiden minuutin välein.
+Worker hakee `publicStreams`-kokoelman ja testaa streamit ennen kuin palauttaa ne sivulle. Sivu pyytää listan uudelleen viiden minuutin välein. Selain käsittelee vain Workerilta saamaansa jo tarkistettua listaa ja käyttää stream-osoitetta toistoa varten.
 
 MP3 toimii selaimissa yleensä suoraan. M3U- ja M3U8-tuki riippuu selaimesta: Safari tukee HLS:ää natiivisti, kun taas Chrome ja Firefox tarvitsevat yleensä suoran selaimen tukeman audio-osoitteen tai erillisen HLS-soittimen. Staattinen sivu ei voi ohittaa selaimen media- tai CORS-rajoituksia.
